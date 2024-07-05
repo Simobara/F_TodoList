@@ -1,0 +1,11 @@
+FROM cirrusci/flutter:stable
+
+WORKDIR /app
+
+COPY . .
+
+RUN flutter pub get
+
+ENV PUB_ENVIRONMENT=netlify
+
+CMD ["flutter", "build", "web"]
